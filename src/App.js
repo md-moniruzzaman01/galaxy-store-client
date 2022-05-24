@@ -16,6 +16,7 @@ import MakeAdmin from './Components/page/Dashboard/MakeAdmin';
 import Allorders from './Components/page/Dashboard/Allorders';
 import AddProducts from './Components/page/Dashboard/AddProducts';
 import ManageProduct from './Components/page/Dashboard/ManageProduct';
+import PurchaseModel from './Components/page/Productdetails/PurchaseModel';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<MainHomePage></MainHomePage>}></Route>
-        <Route path="/purchase" element={<RequireAuth><Purchase/></RequireAuth>}></Route>
+        <Route path="/purchase" element={<RequireAuth><PurchaseModel/></RequireAuth>}></Route>
         <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>
             <Route index element={<MyProfile/>} />
             <Route path='review' element={<MyReview/>}></Route>

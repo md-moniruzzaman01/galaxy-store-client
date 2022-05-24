@@ -26,10 +26,10 @@ const Allorders = () => {
                 
             })
     }
-    console.log(orders);
+
     return (
         <div>
-            <h1 className='text-center mt-44 '>this is manage all orders</h1>
+            <h1 className='text-center'>this is manage all orders</h1>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>
@@ -45,7 +45,7 @@ const Allorders = () => {
                     </thead>
                     <tbody>
                         {
-                            orders.map((order, index) => <tr key={order._id}>
+                          orders.length > 0?  orders.map((order, index) => <tr key={order._id}>
                                 <th>{index + 1}</th>
                                 <td>{order.order}</td>
                                 <td>{order.totalprice}</td>
@@ -55,7 +55,7 @@ const Allorders = () => {
                                 
                                 <td><button onClick={()=>placeOrder(order._id)} class="btn btn-xs">Place order</button></td>
                                
-                            </tr>)
+                            </tr>) : <p className='text-center'>No order found</p>
                         }
 
 

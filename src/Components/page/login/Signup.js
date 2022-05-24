@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
+import useToken from '../../../hooks/useToken';
 import LoadingScreen from '../../sharedComponents/LoadingScreen';
 
 const Signup = () => {
@@ -14,6 +15,13 @@ const Signup = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [ createUserWithEmailAndPassword,user,loading,error,] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [token]=useToken(user || guser)
+    useEffect(()=>{
+        if (token) {
+            navigate(from,{replace:true});
+            
+        }
+    },[token,from,navigate])
       let signInError;
       if (loading|| gloading || updating) {
         return <LoadingScreen></LoadingScreen> 

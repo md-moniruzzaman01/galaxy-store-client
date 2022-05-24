@@ -11,7 +11,7 @@ const ProductsSection = () => {
            
             navigate(`/product/${id}`)
     }
-console.log(popularProduct);
+
     return (
         <div className='container mx-auto mb-24 max-w-7xl'>
         <div className='flex justify-between font-medium my-11 px-2'>
