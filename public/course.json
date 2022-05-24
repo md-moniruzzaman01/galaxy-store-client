@@ -1,0 +1,45 @@
+[
+  {"title":"Chokher Baliby",
+    "image":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwr4oAD70WEI0U7iSWResDEdAOi5daTW_aFVkzoEySAJzAOruY9Rel699RyqmmfldRiXO70m0XcMvwyPSJuwagGYvDSpiM6kCXFMdQAXL52a37-E8IfMZu0gpfVKYnkbCDebOM2xT1BVk-ywTifjOrSQnpUmLTlZlEw6NY4tzTM-MDgTIIIH7WzBIQng/s284/32ba2d5e8c40f4e176cdd22463d79952.jpg",
+    "price":"20.00",
+    "quantity":"6",
+    "discribtion":"Tagore’s writing reveals him to be an advocate for women’s education. His writings affirm the inhumanity of preventing women from accessing the same educational upbringing as men. Tagore’s sister Swarnakumari Devi was among the first Bengali women writers to gain prominence in India. Her education was also unconventional for the time as their father, Debendranth, put a halt on her mechanically taught education at school, and brought in a male teacher, Ajodhyanath Prakash, a male outside in the women’s quarters, thus defying strong cultural norms."
+    },
+    {
+    "title":"Wildlife Photography Tips & Techniques",
+    "image":"https://i.ibb.co/dJ7FYYf/african-elephants-550x680.jpg",
+    "price":"16.00",
+    "quantity":"18",
+    "supplierName":"Ellie Thomson, Harry","category":"Wildlife",
+    "discribtion":"Justo donec enim diam vulputate. Purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus. Ut sem viverra aliquet eget sit. Sed velit dignissim sodales ut eu sem integer vitae justo. Semper viverra nam libero justo. Ac turpis egestas integer eget aliquet nibh praesent.\n\nMassa massa ultricies mi quis hendrerit. Mi eget mauris pharetra et ultrices neque. A erat nam at lectus urna."
+    },
+    {
+      "title":"Interior design is more than a hobby",
+      "image":"https://i.ibb.co/cthWK93/interior-design-550x680.jpg",
+      "price":"15.00",
+      "quantity":"19",
+      "discribtion":"Ipsum faucibus vitae aliquet nec. Dui ut ornare lectus sit. In nisl nisi scelerisque eu ultrices vitae auctor. Elit ullamcorper dignissim cras tincidunt. Odio facilisis mauris sit amet massa vitae tortor. Sed enim ut sem viverra aliquet. Urna et pharetra pharetra massa massa ultricies. Integer quis auctor elit sed vulputate."
+    },
+    {
+    "title":"A beautiful image is a perfect moment frozen",
+    "image":"https://i.ibb.co/S7ff50h/mastering-photography-572x764-1-550x680.jpg",
+    "price":"24.00",
+    "quantity":"27",
+    "discribtion":"Nunc id cursus metus aliquam. Nibh tortor id aliquet lectus proin. Purus viverra accumsan in nisl nisi. Pellentesque eu tincidunt tortor aliquam nulla. Nulla malesuada pellentesque elit eget gravida cum sociis natoque. Neque vitae tempus quam pellentesque nec.\n\nMassa massa ultricies mi quis hendrerit.\n\nMi eget mauris pharetra et ultrices neque. A erat nam at lectus urna."
+  },
+  {
+    "title":"The Inner Face: A Guide to the Emotions We Hide",
+    "image":"https://i.ibb.co/qY42VMF/inner-face-572x764-1-550x680.jpg",
+    "price":"18.00",
+    "quantity":"26",
+    "discribtion":"Enim nec dui nunc mattis enim ut tellus elementum. Adipiscing diam donec adipiscing tristique risus nec feugiat. Sed risus pretium quam vulputate dignissim suspendisse in est ante.\n\nFermentum odio eu feugiat pretium nibh ipsum consequat nisl.\nLectus urna duis convallis convallis tellus id interdum velit.\nPellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et."
+  },
+  {
+    "title":"Music Of Love – The Sound of Your Dreams",
+    "image":"https://i.ibb.co/F4DG2hF/guitar-550x680.jpg",
+    "price":"24.00",
+    "quantity":"10",
+    "discribtion":"Congue nisi vitae suscipit tellus mauris. Aliquet sagittis id consectetur purus ut. Imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper.\n\nSagittis vitae et leo duis ut diam quam. Interdum consectetur libero id faucibus nisl tincidunt. Lobortis elementum nibh tellus molestie nunc non blandit massa."
+  }
+    
+  ]
