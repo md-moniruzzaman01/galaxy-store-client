@@ -22,7 +22,7 @@ const Dashboard = () => {
     </>
   const userDashboard =
     <>
-      <li><Link to='/dashboard'>My Order</Link></li>
+      <li><Link to='/dashboard/order'>My Order</Link></li>
       <li><Link to='/dashboard/review'>My Review</Link></li>
     </>
 
@@ -43,7 +43,7 @@ const Dashboard = () => {
           <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
             {/* <!-- Sidebar content here --> */}
 
-            <li><Link to='/dashboard/profile'>My Profile</Link></li>
+            <li><Link to='/dashboard/'>My Profile</Link></li>
               {
                 admin ? adminDashboard : userDashboard
               }
