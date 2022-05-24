@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import { toast } from 'react-toastify';
 import LoadingScreen from '../../sharedComponents/LoadingScreen';
 
 const ManageProduct = () => {
@@ -17,7 +18,10 @@ const ManageProduct = () => {
                 const confarm = window.confirm('Delete this item')
                 if (confarm) {
                     if(data.deletedCount>0){
+                        toast('products remove successfully')
                         refetch();
+                    }else{
+                        toast('products removeing unsuccessfully')
                     }
                 }
                 
