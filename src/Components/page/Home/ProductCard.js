@@ -2,19 +2,19 @@ import React from 'react';
 import { toast } from 'react-toastify';
 
 const ProductCard = ({product,itemCardbtnClickHandle}) => {
-    const {_id,price,image,quantity,title,discribtion}= product;
+    const {_id,price,img,quantity,title,discription}= product;
 
     return (
         <div className='max-w-sm rounded-lg mx-auto border border-gray-200 shadow-md'>
 
 
             <div>
-                <img className='rounded-t-lg' src={image} alt="" />
+                <img className='rounded-t-lg' src={img} alt="" />
             </div>
             <div className='p-4 text-gray-800'>
                 <h1 className=' text-2xl   tracking-tight '>{quantity}</h1>
                 <p className='mb-3 font-semibold text-gray-900'>{title}</p>
-               <p>{discribtion?.slice(0,100)}</p>
+               <p>{discription?.slice(0,100)}</p>
                
                     
                 

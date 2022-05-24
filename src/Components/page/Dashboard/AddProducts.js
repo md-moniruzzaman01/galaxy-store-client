@@ -22,10 +22,12 @@ const AddProducts = () => {
         .then(result =>{
             if(result.success){
                 const img = result.data.url;
-                const doctor = {
-                    name: data.name,
+                const product = {
+                    title: data.title,
                     email: data.email,
-                    specialty: data.specialty,
+                    price: data.price,
+                    quantity: data.quantity,
+                    discription: data.discription,
                     img: img
                 }
                 // send to your database 
@@ -35,7 +37,7 @@ const AddProducts = () => {
                         'content-type': 'application/json',
                         authorization: `Bearer ${localStorage.getItem('accessToken')}`
                     },
-                    body: JSON.stringify(doctor)
+                    body: JSON.stringify(product)
                 })
                 .then(res =>res.json())
                 .then(inserted =>{
@@ -53,66 +55,115 @@ const AddProducts = () => {
         })
     }
     return (
-        <div>
-            <h1 className='text-center mt-44 '>this is Add a product page</h1>
-            <div>
-            <h2 className="text-2xl">Add a New Doctor</h2>
-            <form onSubmit={handleSubmit(onSubmit)}>
+        <div className='min-h-screen'>
+           <h1 className='underline text-center my-5 text-2xl font-semibold'>Add product </h1>
+            <div className='flex justify-center items-center'>
+            
+            <form className='w-8/12 max-w-lg' onSubmit={handleSubmit(onSubmit)}>
 
-                <div className="form-control w-full max-w-xs">
+                <div className="form-control w-full max-w-lg">
                     <label className="label">
-                        <span className="label-text">Name</span>
+                        <span className="label-text">Title</span>
                     </label>
                     <input
                         type="text"
-                        placeholder="Your Name"
-                        className="input input-bordered w-full max-w-xs"
-                        {...register("name", {
+                        placeholder="Product title here..."
+                        className="input input-bordered w-full max-w-lg"
+                        {...register("title", {
                             required: {
                                 value: true,
-                                message: 'Name is Required'
+                                message: 'Title is Required'
                             }
                         })}
                     />
                     <label className="label">
-                        {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                        {errors.title?.type === 'required' && <span className="label-text-alt text-red-500">{errors.title.message}</span>}
+                    </label>
+                </div>
+                <div className="form-control w-full max-w-lg">
+                    <label className="label">
+                        <span className="label-text">Price</span>
+                    </label>
+                    <input
+                        type="number"
+                        placeholder="Product Price here..."
+                        className="input input-bordered w-full max-w-lg"
+                        {...register("price", {
+                            required: {
+                                value: true,
+                                message: 'Price is Required'
+                            }
+                        })}
+                    />
+                    <label className="label">
+                        {errors.price?.type === 'required' && <span className="label-text-alt text-red-500">{errors.price.message}</span>}
+                    </label>
+                </div>
+                <div className="form-control w-full max-w-lg">
+                    <label className="label">
+                        <span className="label-text">Quantity</span>
+                    </label>
+                    <input
+                        type="number"
+                        placeholder="Product Quantity here..."
+                        className="input input-bordered w-full max-w-lg"
+                        {...register("quantity", {
+                            required: {
+                                value: true,
+                                message: 'Quantity is Required'
+                            }
+                        })}
+                    />
+                    <label className="label">
+                        {errors.quantity?.type === 'required' && <span className="label-text-alt text-red-500">{errors.quantity.message}</span>}
+                    </label>
+                </div>
+                <div className="form-control w-full max-w-lg">
+                    <label className="label">
+                        <span className="label-text">Discription</span>
+                    </label>
+                    <textarea placeholder="Product title here..."
+                        className="input input-bordered w-full max-w-lg"
+                    name="discription" id="" cols="30" rows="10"
+                    {...register("discription", {
+                        required: {
+                            value: true,
+                            message: 'Discription is Required'
+                        }
+                    })}
+                    />
+                    
+                    <label className="label">
+                        {errors.discription?.type === 'required' && <span className="label-text-alt text-red-500">{errors.discription.message}</span>}
                     </label>
                 </div>
 
-                <div className="form-control w-full max-w-xs">
+
+
+                <div className="form-control w-full max-w-lg">
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
                     <input
                         type="email"
-                        placeholder="Your Email"
-                        className="input input-bordered w-full max-w-xs"
-                        {...register("email", {
-                            required: {
-                                value: true,
-                                message: 'Email is Required'
-                            },
-                            pattern: {
-                                value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                                message: 'Provide a valid Email'
-                            }
-                        })}
+                        value={user?.email}
+                        disabled
+                        className="input input-bordered w-full max-w-lg"
+                        
+                    
                     />
-                    <label className="label">
-                        {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                        {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                    </label>
+                    
                 </div>
 
                
 
-                <div className="form-control w-full max-w-xs">
+                <div className="form-control w-full max-w-lg">
                     <label className="label">
                         <span className="label-text">Photo</span>
                     </label>
                     <input
                         type="file"
-                        className="input input-bordered w-full max-w-xs"
+                        className="input input-bordered w-full max-w-lg"
                         {...register("image", {
                             required: {
                                 value: true,
@@ -125,7 +176,7 @@ const AddProducts = () => {
                     </label>
                 </div>
 
-                <input className='btn w-full max-w-xs text-white' type="submit" value="Add" />
+                <input className='btn w-full max-w-lg text-white' type="submit" value="Add" />
             </form>
         </div>
         </div>

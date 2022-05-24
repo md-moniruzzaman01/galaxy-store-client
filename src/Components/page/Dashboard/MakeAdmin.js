@@ -1,10 +1,13 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useQuery } from 'react-query';
+import { Navigate, useNavigate } from 'react-router-dom';
+import auth from '../../../firebase.init';
 import LoadingScreen from '../../sharedComponents/LoadingScreen';
 import UserRow from './UserRow';
 
 const MakeAdmin = () => {
-    
+    const navigate = useNavigate()
         const { data, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
             method: 'GET',
             headers:{
@@ -14,10 +17,13 @@ const MakeAdmin = () => {
         if (isLoading) {
             return <LoadingScreen></LoadingScreen>
         }
-    
+    if (!data) {
+        navigate('/login');
+        signOut(auth);
+    }
     return (
         <div>
-            <h2 className="text-2xl">All Users: {data.length}</h2>
+            <h2 className="text-2xl">All Users: {data?.length}</h2>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>
@@ -30,7 +36,7 @@ const MakeAdmin = () => {
                     </thead>
                     <tbody>
                        {
-                           data.map(user=><UserRow
+                         data &&  data.map(user=><UserRow
                            key={user._id}
                            user={user}
                            refetch={refetch}
