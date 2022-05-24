@@ -12,6 +12,10 @@ import ProductDetails from './Components/page/Productdetails/ProductDetails';
 import Purchase from './Components/page/Purchase/Purchase';
 import Navbar from './Components/sharedComponents/Navbar';
 import RequireAuth from './Components/sharedComponents/RequireAuth';
+import MakeAdmin from './Components/page/Dashboard/MakeAdmin';
+import Allorders from './Components/page/Dashboard/Allorders';
+import AddProducts from './Components/page/Dashboard/AddProducts';
+import ManageProduct from './Components/page/Dashboard/ManageProduct';
 
 function App() {
   return (
@@ -21,9 +25,13 @@ function App() {
         <Route path="/" element={<MainHomePage></MainHomePage>}></Route>
         <Route path="/purchase" element={<RequireAuth><Purchase/></RequireAuth>}></Route>
         <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>
-            <Route index element={<MyOrder />} />
+            <Route index element={<MyProfile/>} />
             <Route path='review' element={<MyReview/>}></Route>
-            <Route path='profile' element={<MyProfile/>}></Route>
+            <Route path='order' element={<MyOrder />}></Route>
+            <Route path='allorder' element={<Allorders/>}></Route>
+            <Route path='add' element={<AddProducts/>}></Route>
+            <Route path='manage' element={<ManageProduct/>}></Route>
+            <Route path='makeadmin' element={<MakeAdmin/>}></Route>
         </Route>
 
         <Route path='/product/:id' element={<ProductDetails/> }/>
