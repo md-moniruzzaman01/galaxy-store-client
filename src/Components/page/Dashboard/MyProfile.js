@@ -1,14 +1,32 @@
 import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuthState, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { FaUser } from "react-icons/fa";
+import { toast } from 'react-toastify';
+import { useQuery } from 'react-query';
+import LoadingScreen from '../../sharedComponents/LoadingScreen';
 
 const MyProfile = () => {
     const [edit, setEdit] = useState(true)
     const navigate = useNavigate()
+    const [updateProfile, updating, error1] = useUpdateProfile(auth);
     const [user, loading, error] = useAuthState(auth);
+//    if (loading) {
+//     return <LoadingScreen></LoadingScreen>
+//    }
+  
+    const { data:profile, isLoading, refetch } = useQuery('users', () => fetch(`http://localhost:5000/profile`, {
+        method: 'GET',
+        headers:{
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res => res.json()));
+    if (isLoading || loading ||updating) {
+        return <LoadingScreen></LoadingScreen>
+    }
+    
     const prifileIcon = <FaUser />
     const editHandle = (e) => {
         e.preventDefault();
@@ -23,7 +41,8 @@ const MyProfile = () => {
             location: location,
             company: company
         }
-        
+        updateProfile({ displayName: name })
+       
          const url =`http://localhost:5000/update/info/${user.email}`
         fetch(url,{
        
@@ -37,14 +56,23 @@ const MyProfile = () => {
         })
         .then(res=> res.json())
         .then(data=>{
-            console.log(data)
+            if (data.acknowledged) {
+                toast(`update successfull`)
+               
+                
+                setEdit(true)
+
+            }
+            else {
+                toast.error(`try again`)
+            }
         })
-        
+        refetch()
         
        
     }
         
-    
+    console.log(profile);
     
     return (
         <>
@@ -72,45 +100,48 @@ const MyProfile = () => {
             <div className=' w-8/12 mx-auto mt-5 space-y-5'>
                 
                 {
-                                edit ? <p>Phone :  <span className='font-medium'>{'*************'}</span></p> :
+                                edit ? <p>Phone :  <span className='font-medium'>{profile?.phone || '*********'}</span></p> :
                                     <div class="form-control">
                                         <label class="input-group">
                                             <span>Phone</span>
-                                            <input type="text" name='phone' placeholder="phone number" class="input input-bordered" />
+                                            <input type="text" name='phone' placeholder={profile?.phone || '*********'} class="input input-bordered" />
                                         </label>
                                     </div>
                   }
                 {
-                                edit ? <p>Education :  <span className='font-medium'>{'*************'}</span></p> :
+                                edit ? <p>Education :  <span className='font-medium'>{profile?.education||'*************'}</span></p> :
                                     <div class="form-control">
                                         <label class="input-group">
                                             <span>Education</span>
-                                            <input type="text" name='education' placeholder="phone number" class="input input-bordered" />
+                                            <input type="text" name='education' placeholder={profile?.education||'*************'} class="input input-bordered" />
                                         </label>
                                     </div>
                   }
                 {
-                                edit ? <p> Location :  <span className='font-medium'>{'*************'}</span></p> :
+                                edit ? <p> Location :  <span className='font-medium'>{profile?.location|| '*************'}</span></p> :
                                     <div class="form-control">
                                         <label class="input-group">
                                             <span>Location</span>
-                                            <input type="text" name='location' placeholder="phone number" class="input input-bordered" />
+                                            <input type="text" name='location' placeholder={profile?.location|| '*************'} class="input input-bordered" />
                                         </label>
                                     </div>
                   }
                 {
-                                edit ? <p> Company Name :  <span className='font-medium'>{'*************'}</span></p> :
+                                edit ? <p> Company Name :  <span className='font-medium'>{profile?.company|| '*************'}</span></p> :
                                     <div class="form-control">
                                         <label class="input-group">
                                             <span>Company Name</span>
-                                            <input type="text" name='company' placeholder="phone number" class="input input-bordered" />
+                                            <input type="text" name='company' placeholder={profile?.company|| '*************'} class="input input-bordered" />
                                         </label>
                                     </div>
                   }
             </div>
             <div className='mt-11  flex justify-end container mx-auto '>
                 {edit ? <button onClick={() => setEdit(false)} className='bg-gray-300 px-7 py-2 rounded-3xl text-xl text-gray-800 font-medium mr-5 '>Edit</button> :
-                    <input  type='submit' className='bg-gray-300 px-7 py-2 rounded-3xl text-xl text-gray-800 font-medium mr-5 ' value='save'/>
+                   <div>
+                        <input  type='submit' className='bg-gray-300 px-7 py-2 rounded-3xl text-xl text-gray-800 font-medium mr-5 ' value='save'/>
+                        <button onClick={() => setEdit(true)} className='bg-gray-300 px-7 py-2 rounded-3xl text-xl text-gray-800 font-medium mr-5 '>X</button>
+                   </div>
                     
                 }
             </div>

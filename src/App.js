@@ -36,6 +36,7 @@ function App() {
         </Route>
 
         <Route path='/product/:id' element={<ProductDetails/> }/>
+        <Route path='purchase' element={<PurchaseModel/> }/>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
        
