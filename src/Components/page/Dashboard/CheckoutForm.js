@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
-const CheckoutForm = ({ item }) => {
+const CheckoutForm = ({ appointment }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
@@ -9,9 +9,10 @@ const CheckoutForm = ({ item }) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
+ 
 
-    const {price } = item;
-console.log(item);
+    const { _id, totalprice, email, Name } = appointment;
+
     useEffect(() => {
         fetch('http://localhost:5000/create-payment-intent', {
             method: 'POST',
@@ -19,16 +20,18 @@ console.log(item);
                 'content-type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
-            body: JSON.stringify({ price })
+            body: JSON.stringify({ totalprice })
         })
             .then(res => res.json())
             .then(data => {
                 if (data?.clientSecret) {
                     setClientSecret(data.clientSecret);
+                    
+                    
                 }
             });
 
-    }, [price])
+    }, [totalprice])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -51,48 +54,50 @@ console.log(item);
         setCardError(error?.message || '')
         setSuccess('');
         setProcessing(true);
+        
         // confirm card payment
         const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
             clientSecret,
             {
                 payment_method: {
                     card: card,
-                    // billing_details: {
-                    //     name: Name,
-                    //     email: email
-
-                    // },
+                    billing_details: {
+                        name: Name,
+                        email: email
+                    },
                 },
             },
-        );
-
-        if (intentError) {
-            setCardError(intentError?.message);
-            setProcessing(false);
-        }
+            console.log(clientSecret)
+            );
+            
+            if (intentError) {
+                setCardError(intentError?.message);
+                setProcessing(false);
+            }
+           
         else {
             setCardError('');
             setTransactionId(paymentIntent.id);
             console.log(paymentIntent);
             setSuccess('Congrats! Your payment is completed.')
             
-            // //store payment on database
-            // const payment = {
-            //     appointment: _id,
-            //     transactionId: paymentIntent.id
-            // }
-            // fetch(`http://localhost:5000/payment/${_id}`, {
-            //     method: 'PATCH',
-            //     headers: {
-            //         'content-type': 'application/json',
-            //         'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-            //     },
-            //     body: JSON.stringify(payment)
-            // }).then(res=>res.json())
-            // .then(data => {
-            //     setProcessing(false);
-            //     console.log(data);
-            // })
+            //store payment on database
+            const payment = {
+                appointment: _id,
+                transactionId: paymentIntent.id
+            }
+            fetch(`http://localhost:5000/payment/${_id}`, {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(payment)
+            }).then(res=>res.json())
+            .then(data => {
+                setProcessing(false);
+                
+            })
 
         }
     }

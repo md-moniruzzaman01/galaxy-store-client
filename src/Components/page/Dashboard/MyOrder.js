@@ -46,6 +46,7 @@ const MyOrder = () => {
                             <th>Quantity</th>
                             <th>Total</th>
                             <th>name</th>
+                            <th>status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,6 +58,13 @@ const MyOrder = () => {
                                 <td>{order.singlePrice}</td>
                                 <td>{order.quantity}</td>
                                 <td>{order.totalprice}</td>
+                                <td>
+                                     <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-xs btn-success'>pay</button></Link>
+                                    {/* {(order.price && order.paid) && <div>
+                                        <p><span className='text-success'>Paid</span></p>
+                                        <p>Transaction id: <span className='text-success'>{order.transactionId}</span></p>
+                                    </div>} */}
+                                </td>
                                
                             </tr>)
                         }
