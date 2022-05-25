@@ -24,7 +24,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<MainHomePage></MainHomePage>}></Route>
-        <Route path="/purchase" element={<RequireAuth><PurchaseModel/></RequireAuth>}></Route>
+        
         <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>
             <Route index element={<MyProfile/>} />
             <Route path='review' element={<MyReview/>}></Route>

@@ -30,8 +30,8 @@ const Allorders = () => {
     return (
         <div>
             <h1 className='text-center'>this is manage all orders</h1>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
@@ -53,7 +53,7 @@ const Allorders = () => {
                                 <td>{order.Name}</td>
                                 <td>{order.email}</td>
                                 
-                                <td><button onClick={()=>placeOrder(order._id)} class="btn btn-xs">Place order</button></td>
+                                <td><button onClick={()=>placeOrder(order._id)} className="btn btn-xs">Place order</button></td>
                                
                             </tr>) : <p className='text-center'>No order found</p>
                         }

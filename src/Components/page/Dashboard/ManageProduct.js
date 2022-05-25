@@ -31,8 +31,8 @@ const ManageProduct = () => {
         <div>
             <h1 className='text-center mt-16 '>this is manage product {products.length}</h1>
             
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
@@ -51,7 +51,7 @@ const ManageProduct = () => {
                                 <td>{order.price}</td>
                                 <td>{order.quantity}</td>
                                 <td>{order.uploader}</td>
-                                <td><button onClick={()=>removeProduct(order._id)} class="btn btn-xs">remove</button></td>
+                                <td><button onClick={()=>removeProduct(order._id)} className="btn btn-xs">remove</button></td>
                                
                             </tr>)
                         }
