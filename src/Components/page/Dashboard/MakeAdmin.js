@@ -1,5 +1,5 @@
 import { signOut } from 'firebase/auth';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { Navigate, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
@@ -8,15 +8,29 @@ import UserRow from './UserRow';
 
 const MakeAdmin = () => {
     const navigate = useNavigate()
-        const { data, isLoading, refetch } = useQuery('users', () => fetch('https://gentle-coast-39284.herokuapp.com/user', {
+    const [data ,setData]=useState([])
+    useEffect(() => {
+        fetch('https://gentle-coast-39284.herokuapp.com/user', {
             method: 'GET',
-            headers:{
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             }
-        }).then(res => res.json()));
-        if (isLoading) {
-            return <LoadingScreen></LoadingScreen>
-        }
+        })
+        .then(res => res.json())
+        .then(data => setData(data))
+
+    }, [])
+        // const { data, isLoading, refetch } = useQuery('users', () => fetch('https://gentle-coast-39284.herokuapp.com/user', {
+        //     method: 'GET',
+        //     headers:{
+        //         authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        //     }
+        // }).then(res => res.json()));
+        // if (isLoading) {
+        //     return <LoadingScreen></LoadingScreen>
+        // }
+
     if (!data) {
         navigate('/login');
         signOut(auth);
@@ -39,7 +53,7 @@ const MakeAdmin = () => {
                          data &&  data.map(user=><UserRow
                            key={user._id}
                            user={user}
-                           refetch={refetch}
+                           
                            ></UserRow>)
                        }
                     </tbody>

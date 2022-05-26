@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const UserRow = ({ user, refetch }) => {
+const UserRow = ({ user }) => {
     const { email, role } = user;
     const makeAdmin = () => {
         fetch(`https://gentle-coast-39284.herokuapp.com/user/admin/${email}`, {
@@ -17,7 +17,7 @@ const UserRow = ({ user, refetch }) => {
                 return res.json()})
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    refetch();
+                    
                     toast.success(`Successfully made an admin`);
                 }
 
