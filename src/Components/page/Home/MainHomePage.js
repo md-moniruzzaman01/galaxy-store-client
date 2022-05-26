@@ -1,7 +1,8 @@
 import React from 'react';
 import Carousol from './Carousol';
 import ProductsSection from './ProductsSection';
-import ReviewSection from './ReviewSection';
+
+import Testimonials from './Testimonials';
 import WelcomeIntro from './WelcomeIntro';
 
 const MainHomePage = () => {
@@ -10,7 +11,7 @@ const MainHomePage = () => {
                 <Carousol></Carousol>
                 <WelcomeIntro></WelcomeIntro>
                 <ProductsSection></ProductsSection>
-                <ReviewSection></ReviewSection>
+                <Testimonials></Testimonials>
         </div>
     );
 };
