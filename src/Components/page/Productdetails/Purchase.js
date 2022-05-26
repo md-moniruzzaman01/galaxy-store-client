@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 const stripePromise = loadStripe('pk_test_51L3KFtHgrzTwzXbTPuug6SqXFwTgie0DpD4ZilRiqYlD26LAcPCD27bptC1TrKXG394vyzjr8S5d4iJulWiAyQyn00VNpYadf8');
 const Purchase = () => {
     const { id } = useParams();
-    const url = `http://localhost:5000/details/${id}`;
+    const url = `https://gentle-coast-39284.herokuapp.com/details/${id}`;
 
     const { data: item, isLoading } = useQuery(['order', id], () => fetch(url, {
         method: 'GET',

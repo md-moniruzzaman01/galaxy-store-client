@@ -17,7 +17,7 @@ const MyProfile = () => {
 //     return <LoadingScreen></LoadingScreen>
 //    }
   
-    const { data:profile, isLoading, refetch } = useQuery('users', () => fetch(`http://localhost:5000/profile`, {
+    const { data:profile, isLoading, refetch } = useQuery('users', () => fetch(`https://gentle-coast-39284.herokuapp.com/profile`, {
         method: 'GET',
         headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -43,7 +43,7 @@ const MyProfile = () => {
         }
         updateProfile({ displayName: name })
        
-         const url =`http://localhost:5000/update/info/${user.email}`
+         const url =`https://gentle-coast-39284.herokuapp.com/update/info/${user.email}`
         fetch(url,{
        
              method: 'PUT',

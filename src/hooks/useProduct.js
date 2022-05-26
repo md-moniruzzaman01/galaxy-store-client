@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 const useCourse = () => {
     const [popularProduct, setPopularProduct] =useState([]);
 useEffect(()=>{
-    fetch('http://localhost:5000/popular/product')
+    fetch('https://gentle-coast-39284.herokuapp.com/popular/product')
     .then(res => res.json())
     .then(data => setPopularProduct(data))
 },[])

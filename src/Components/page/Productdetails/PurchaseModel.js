@@ -12,7 +12,7 @@ const PurchaseModel = () => {
     const id = new URLSearchParams(search).get('id');
     const orders = new URLSearchParams(search).get('order');
     const date = new Date()
-    const { data: item, isLoading, refetch } = useQuery('services', () => fetch(`http://localhost:5000/details/${id}`).then(res => res.json()));
+    const { data: item, isLoading, refetch } = useQuery('services', () => fetch(`https://gentle-coast-39284.herokuapp.com/details/${id}`).then(res => res.json()));
     const navigate = useNavigate()
 
     if (isLoading) {
@@ -40,7 +40,7 @@ const PurchaseModel = () => {
 
             }
 
-            fetch('http://localhost:5000/order', {
+            fetch('https://gentle-coast-39284.herokuapp.com/order', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -64,7 +64,7 @@ const PurchaseModel = () => {
     }
 
     // const updateQuantity = item?.quantity - orders
-    // const url = `http://localhost:5000/update/${item?._id}`
+    // const url = `https://gentle-coast-39284.herokuapp.com/update/${item?._id}`
     // fetch(url, {
 
     //     method: 'PUT',

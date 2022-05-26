@@ -4,12 +4,12 @@ import { toast } from 'react-toastify';
 import LoadingScreen from '../../sharedComponents/LoadingScreen';
 
 const Allorders = () => {
-    const { data: orders, isLoading,refetch } = useQuery('services', () => fetch('http://localhost:5000/allorder').then(res => res.json()));
+    const { data: orders, isLoading,refetch } = useQuery('services', () => fetch('https://gentle-coast-39284.herokuapp.com/allorder').then(res => res.json()));
     if (isLoading) {
         return <LoadingScreen></LoadingScreen>
     }
     const placeOrder = (id)=>{
-            fetch(`http://localhost:5000/remove/order/${id}`,{
+            fetch(`https://gentle-coast-39284.herokuapp.com/remove/order/${id}`,{
                 method: 'DELETE'
             })
             .then(res=> res.json())

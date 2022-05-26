@@ -15,7 +15,7 @@ const ProductDetails = () => {
   
     const { id } = useParams();
 
-    const { data:item, isLoading,refetch } = useQuery('services', () => fetch(`http://localhost:5000/details/${id}`).then(res => res.json()));
+    const { data:item, isLoading,refetch } = useQuery('services', () => fetch(`https://gentle-coast-39284.herokuapp.com/details/${id}`).then(res => res.json()));
     if (isLoading) {
         <LoadingScreen/>
     }

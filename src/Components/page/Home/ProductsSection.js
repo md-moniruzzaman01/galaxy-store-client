@@ -7,7 +7,7 @@ import ProductCard from './ProductCard';
 
 const ProductsSection = () => {
    
-    // const { data, isLoading,refetch } = useQuery('services', () => fetch('http://localhost:5000/popular/product').then(res => res.json()));
+    // const { data, isLoading,refetch } = useQuery('services', () => fetch('https://gentle-coast-39284.herokuapp.com/popular/product').then(res => res.json()));
     const navigate = useNavigate()
     const [popularProduct, setPopularProduct]=useProduct()
     // if (isLoading) {

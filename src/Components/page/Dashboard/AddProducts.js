@@ -31,7 +31,7 @@ const AddProducts = () => {
                     img: img
                 }
                 // send to your database 
-                fetch('http://localhost:5000/addproduct', {
+                fetch('https://gentle-coast-39284.herokuapp.com/addproduct', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',

@@ -20,6 +20,7 @@ import PurchaseModel from './Components/page/Productdetails/PurchaseModel';
 import Payment from './Components/page/Dashboard/Payment';
 import Products from './Components/page/Products/Products';
 import Footer from './Components/sharedComponents/Footer';
+import PageNotFound from './Components/page/404/PageNotFound';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
    
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
+        <Route path="*" element={<PageNotFound/>}></Route>
        
       </Routes>
       <Footer></Footer>

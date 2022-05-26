@@ -5,12 +5,12 @@ import LoadingScreen from '../../sharedComponents/LoadingScreen';
 
 const ManageProduct = () => {
     
-    const { data: products, isLoading,refetch } = useQuery('services', () => fetch('http://localhost:5000/all').then(res => res.json()));
+    const { data: products, isLoading,refetch } = useQuery('services', () => fetch('https://gentle-coast-39284.herokuapp.com/all').then(res => res.json()));
     if (isLoading) {
         return <LoadingScreen></LoadingScreen>
     }
     const removeProduct = (id)=>{
-            fetch(`http://localhost:5000/remove/${id}`,{
+            fetch(`https://gentle-coast-39284.herokuapp.com/remove/${id}`,{
                 method: 'DELETE'
             })
             .then(res=> res.json())

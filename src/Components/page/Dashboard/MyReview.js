@@ -18,7 +18,7 @@ const MyReview = () => {
 
         }
 
-        fetch('http://localhost:5000/comment', {
+        fetch('https://gentle-coast-39284.herokuapp.com/comment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -28,7 +28,7 @@ const MyReview = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    toast(`order successfull`)
+                    toast(`comment post successfull`)
 
                 }
                 else {
@@ -43,7 +43,7 @@ const MyReview = () => {
                 <div className="card-body">
                     <form onSubmit={handleOrder}>
                         <div className="form-control w-full max-w-lg">
-                            <label className="label"><span className="label-text">Give us rating</span></label>
+                            <label className="label"><span className="label-text">Give us between 0/5</span></label>
                             <input type="text" placeholder="Type here" name='rating' className="input input-bordered w-full" />
 
                         </div>

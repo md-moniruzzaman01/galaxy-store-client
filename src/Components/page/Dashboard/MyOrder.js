@@ -11,7 +11,7 @@ const MyOrder = () => {
     const [myorder, setMyOrder] = useState([]);
     const [user] = useAuthState(auth);
     const navigate = useNavigate()
-const url = `http://localhost:5000/myorder?email=${user.email}`
+const url = `https://gentle-coast-39284.herokuapp.com/myorder?email=${user.email}`
     useEffect(() => {
         if (user) {
             fetch(url, {
@@ -61,7 +61,7 @@ const url = `http://localhost:5000/myorder?email=${user.email}`
 
     const placeOrder = (id)=>{
         
-        fetch(`http://localhost:5000/remove/order/${id}`,{
+        fetch(`https://gentle-coast-39284.herokuapp.com/remove/order/${id}`,{
             method: 'DELETE'
         })
         .then(res=> res.json())
