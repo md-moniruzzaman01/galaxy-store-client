@@ -1,0 +1,13 @@
+.landing-section{
+    height: 110vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    background-attachment: fixed;
+}
+.text-section{
+    background-color: rgba(0, 0, 0, 0.3);
+   
+
+}

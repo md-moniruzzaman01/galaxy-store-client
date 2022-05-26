@@ -1,0 +1,18 @@
+.blog-section{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+.border-b-small{
+    border-bottom: 1px solid gray;
+}
+.category{
+    position: sticky;
+    top: 0;
+    padding: 30px 20px;
+}
+@media only screen and (max-width: 600px) {
+    .blog-section{
+        
+        grid-template-columns:1fr;
+    }
+  }

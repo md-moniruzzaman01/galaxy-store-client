@@ -1,4 +1,6 @@
 import React from 'react';
+import Businesstrust from '../Business/Businesstrust';
+import BestEge from './BestEge';
 import Carousol from './Carousol';
 import ProductsSection from './ProductsSection';
 
@@ -9,9 +11,11 @@ const MainHomePage = () => {
     return (
         <div>
                 <Carousol></Carousol>
-                <WelcomeIntro></WelcomeIntro>
+                <Businesstrust></Businesstrust>
                 <ProductsSection></ProductsSection>
+                <WelcomeIntro></WelcomeIntro>
                 <Testimonials></Testimonials>
+                <BestEge></BestEge>
         </div>
     );
 };

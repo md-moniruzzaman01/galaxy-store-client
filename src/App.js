@@ -21,6 +21,9 @@ import Payment from './Components/page/Dashboard/Payment';
 import Products from './Components/page/Products/Products';
 import Footer from './Components/sharedComponents/Footer';
 import PageNotFound from './Components/page/404/PageNotFound';
+import Blogs from './Components/page/blogs/Blogs';
+import Details from './Components/page/blogs/Details';
+import Portfolio from './Components/page/Portfolio/Portfolio';
 
 function App() {
   return (
@@ -43,7 +46,10 @@ function App() {
 
         <Route path='/product/:id' element={<ProductDetails/> }/>
         <Route path='/purchase' element={<PurchaseModel/> }/>
+        <Route path='/portfolio' element={<Portfolio/> }/>
    
+        <Route path="/blogs" element={<Blogs/>}></Route>
+        <Route path="/blogs/:id" element={<Details/>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
         <Route path="*" element={<PageNotFound/>}></Route>
