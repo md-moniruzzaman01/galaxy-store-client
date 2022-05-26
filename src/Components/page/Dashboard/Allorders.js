@@ -40,6 +40,7 @@ const Allorders = () => {
                             <th>Quantity</th>
                             <th>client</th>
                             <th>email address</th>
+                            <th>status</th>
                             <th>controls</th>
                         </tr>
                     </thead>
@@ -52,8 +53,16 @@ const Allorders = () => {
                                 <td>{order.quantity}</td>
                                 <td>{order.Name}</td>
                                 <td>{order.email}</td>
+                                <td>{
+
+                                    order.paid ? <p className='px-2 py-1 bg-gray-300 rounded-3xl text-center'>paid</p> : <p className='px-2 py-1 bg-gray-300 rounded-3xl text-center'>unpaid</p>
+                                    }
+                                </td>
+
                                 
-                                <td><button onClick={()=>placeOrder(order._id)} className="btn btn-xs">shift order</button></td>
+                                <td>{
+                                    order.paid ? <button onClick={()=>placeOrder(order._id)} className="btn btn-xs">shipped</button> : <p className='btn btn-ghost btn-xs'>pending</p>
+                                    }</td>
                                
                             </tr>) : <p className='text-center'>No order found</p>
                         }

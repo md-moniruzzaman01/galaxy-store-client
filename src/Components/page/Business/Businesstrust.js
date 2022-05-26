@@ -9,22 +9,26 @@ const Businesstrust = () => {
         {
             head:<AiOutlineFlag/>,
             body: '72',
-            footer: 'Countries'
+            footer: 'Countries',
+            _id:1
         },
         {
             head:<CgWebsite/>,
             body: '535+' ,
-            footer:'Complete Projects'
+            footer:'Complete Projects',
+            _id:2
         },
         {
             head:<IoPeopleOutline/>,
             body: '273+',
-            footer:'Happy Clients'
+            footer:'Happy Clients',
+            _id:3
         },
         {
             head:<GoThumbsup/>,
             body: '432+',
-            footer:'Feedbacks'
+            footer:'Feedbacks',
+            _id:4
         },
         
        
@@ -40,7 +44,7 @@ const Businesstrust = () => {
                 {
                    items.map(categorty=> <Item 
                     categorty={categorty}
-                    key={categorty.id}
+                    key={categorty._id}
                    ></Item>) 
                 }
             </div>

@@ -17,11 +17,11 @@ const Footer = () => {
             <div className='space-y-2 text-gray-300 ml-7 md:ml-24 mb-7'>
            <div>
            <h2 className='text-xl text-red-600 font-semibold  mb-3'>
-                  IFCO
+                  EIFCO
                    </h2>
                    <p>About</p>
                    <p>Blog</p>
-                   <p>Careers</p>
+                   <p>contacts</p>
                    <p>Contact Us</p>
            </div>
                </div>
@@ -38,9 +38,9 @@ const Footer = () => {
                  <div>
                  <h1 className='text-2xl font-semibold  text-gray-300 mb-3'>Links</h1>
                        <p>Insta by Eduskul</p>
-                       <p>Eduskull Profile</p>
-                       <p>Eduskull Reachrce</p>
-                       <p>Eduskull  Drive</p>
+                       <p>EIFCO Profile</p>
+                       <p>EIFCO Reachrce</p>
+                       <p>EIFCO  Drive</p>
                  </div>
                    
                </div>

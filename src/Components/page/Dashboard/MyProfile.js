@@ -72,7 +72,7 @@ const MyProfile = () => {
        
     }
         
-    console.log(profile);
+
     
     return (
         <>
