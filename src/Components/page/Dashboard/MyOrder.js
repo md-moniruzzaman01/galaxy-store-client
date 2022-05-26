@@ -70,7 +70,7 @@ const url = `http://localhost:5000/myorder?email=${user.email}`
             if (confarm) {
                 if(data.deletedCount>0){
                     toast('order placed successfully')
-                    
+                   
                    
                 }else{
                     toast('order place s unsuccessfully')

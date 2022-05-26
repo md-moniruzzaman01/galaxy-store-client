@@ -53,7 +53,7 @@ const Allorders = () => {
                                 <td>{order.Name}</td>
                                 <td>{order.email}</td>
                                 
-                                <td><button onClick={()=>placeOrder(order._id)} className="btn btn-xs">Place order</button></td>
+                                <td><button onClick={()=>placeOrder(order._id)} className="btn btn-xs">shift order</button></td>
                                
                             </tr>) : <p className='text-center'>No order found</p>
                         }

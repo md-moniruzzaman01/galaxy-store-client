@@ -62,6 +62,23 @@ const PurchaseModel = () => {
                 });
         }
     }
+
+    // const updateQuantity = item?.quantity - orders
+    // const url = `http://localhost:5000/update/${item?._id}`
+    // fetch(url, {
+
+    //     method: 'PUT',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+
+    //     },
+    //     body: JSON.stringify({ quantity: updateQuantity })
+
+    // })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         //    console.log(data)
+    //     })
     return (
         <div className='min-h-screen'>
             <div className='flex justify-center items-center'>
@@ -82,7 +99,7 @@ const PurchaseModel = () => {
                         <input type="number" name='phone' placeholder="Phone number" className="input input-bordered w-full max-w-lg" required />
                         <input type="text" name='address' placeholder="Your address..." className="input input-bordered w-full max-w-lg" required />
 
-                        <input type="submit" value="Pay now" className="btn bg-green-800 text-white border-0 w-full max-w-lg" />
+                        <input type="submit" value="place order" className="btn bg-green-800 text-white border-0 w-full max-w-lg" />
                     </form>
                 </div>
                 {/* </div> */}
