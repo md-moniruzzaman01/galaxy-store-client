@@ -1,6 +1,18 @@
 import React from 'react';
 import './portfolio.css'
 import bgImage from '../../../images/96794329.jfif'
+import { Swiper, SwiperSlide } from "swiper/react";
+import img1 from '../../../images/eduskill.PNG'
+import img2 from '../../../images/68747470733a2f2f692e6962622e636f2f57787134526e792f436170747572652e706e67.png'
+import img3 from '../../../images/dragonlight.PNG'
+import img4 from '../../../images/mediplas.PNG'
+import img5 from '../../../images/redcarpet.PNG'
+
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper";
 const Portfolio = () => {
     return (
         <div>
@@ -13,7 +25,7 @@ const Portfolio = () => {
       </div>
 
     </div>
-    <div className='mx-auto max-w-7xl my-44  '>
+    <div className='mx-auto max-w-7xl my-20  '>
         <p className='text-xl mx-5 md:mx-11'>I'm Professional MERN stack web designer and developer . I have complited MERN stack main course in Programming Hero institute .My exparties in Frontend reactjs project as wel as i know basic of Nodejs . I have compited more then 13 + project .</p>
         <p className='mt-11 text-xl mx-5 md:mx-11 font-semibold'>My exparties in  tecnology : </p>
         <ul className='text-base mt-7 mx-11 md:mx-24 list-disc'>
@@ -29,6 +41,55 @@ const Portfolio = () => {
             <li>Mongodb</li>
             <li>Express</li>
         </ul>
+    </div>
+    <div className='mx-auto max-w-7xl'>
+        <h2 className='text-3xl font-semibold mb-11'>Some of my resent projects</h2>
+    <Swiper
+        slidesPerView={3}
+        spaceBetween={30}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+            <div>
+                <a href="https://education-fa5c7.web.app/">
+                <img src={img1} alt="" />
+                </a>
+            </div>
+        </SwiperSlide>
+        <SwiperSlide>
+            <div>
+                <a href="https://assignment-11-b48ac.web.app/">
+                <img src={img2} alt="" />
+                </a>
+            </div>
+        </SwiperSlide>
+        <SwiperSlide>
+            <div>
+                <a href="https://assignment-10-2d9ec.web.app/">
+                <img src={img3} alt="" />
+                </a>
+            </div>
+        </SwiperSlide>
+        <SwiperSlide>
+            <div>
+                <a href="https://medica-plus.web.app/">
+                <img src={img4} alt="" />
+                </a>
+            </div>
+        </SwiperSlide>
+        <SwiperSlide>
+            <div>
+                <a href="https://ph-assignment-03.netlify.app/">
+                <img src={img5} alt="" />
+                </a>
+            </div>
+        </SwiperSlide>
+        
+      </Swiper>
     </div>
         </div>
     );
